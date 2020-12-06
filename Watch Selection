@@ -1,0 +1,87 @@
+**************************************************C# code for Watch selection***********************************************************8
+usingSystem.Collections;
+usingSystem.Collections.Generic;
+usingSystem.Security.Permissions;
+usingUnityEngine;
+usingUnityEngine.EventSystems;
+
+public class watchselect :MonoBehaviour
+{
+publicGameObject watchmodel1;
+publicGameObject watchmodel2;
+publicGameObject watchmodel3;
+
+publicGameObject w1window;
+publicGameObject w2window;
+publicGameObject w3window;
+
+    Animation w1windowAnimation;
+    Animation w2windowAnimation;
+    Animation w3windowAnimation;
+
+
+void Start()
+    {
+        w1windowAnimation = w1window.GetComponent<Animation>();
+        w2windowAnimation = w2window.GetComponent<Animation>();
+        w3windowAnimation = w3window.GetComponent<Animation>();
+
+
+    }
+
+public void watchonebuttonclicked()
+    {
+watchmodel1.SetActive(true);
+watchmodel2.SetActive(false);
+watchmodel3.SetActive(false);
+
+w1windowAnimation["Watch1anim"].speed = 1;
+w1windowAnimation.Play();
+    }
+
+public void closebuttonclicked()
+    {
+stringbuttonname = EventSystem.current.currentSelectedGameObject.name;
+
+if (buttonname == "Close1")
+         { 
+w1windowAnimation["Watch1anim"].speed =-1;
+w1windowAnimation["Watch1anim"].time = w1windowAnimation["Watch1anim"].length;
+w1windowAnimation.Play(); }
+else if (buttonname == "Close2")
+             { 
+w2windowAnimation["watch2anim"].speed = -1;
+w2windowAnimation["watch2anim"].time = w2windowAnimation["watch2anim"].length;
+w2windowAnimation.Play(); }
+else if (buttonname == "Close3")
+                { 
+w3windowAnimation["watch3anim"].speed = -1;
+w3windowAnimation["watch3anim"].time = w3windowAnimation["watch3anim"].length;
+w3windowAnimation.Play();
+                } 
+
+
+    }
+
+public void watchtwobuttonclicked()
+    {
+watchmodel1.SetActive(false);
+watchmodel2.SetActive(true);
+watchmodel3.SetActive(false);
+
+w2windowAnimation["watch2anim"].speed = 1;
+w2windowAnimation.Play();
+
+    }
+
+public void watchthreebuttonclicked()
+    {
+watchmodel1.SetActive(false);
+watchmodel2.SetActive(false);
+watchmodel3.SetActive(true);
+
+w3windowAnimation["watch3anim"].speed = 1;
+w3windowAnimation.Play();
+    }
+
+}
