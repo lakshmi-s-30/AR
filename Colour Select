@@ -1,0 +1,73 @@
+*******************************C# code for Colour select***************************
+using System;
+usingSystem.Collections;
+usingSystem.Collections.Generic;
+usingUnityEngine;
+usingUnityEngine.EventSystems;
+
+public class ColourSelect :MonoBehaviour
+{
+public Material Band1;
+public Material Band2;
+public Material Band3;
+
+    // Start is called before the first frame update
+void Start()
+    {
+
+    }
+
+public void w1colourselect()
+    {
+stringbuttonname = EventSystem.current.currentSelectedGameObject.name;
+if (buttonname=="BlueButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#182FCC", out myColor);
+            Band1.color = myColor;
+        }
+else if(buttonname=="BlackButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#000000", out myColor);
+            Band1.color = myColor;
+        }
+
+    }
+
+public void w2colourselect()
+    {
+stringbuttonname = EventSystem.current.currentSelectedGameObject.name;
+if (buttonname == "BlackButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#000000", out myColor);
+            Band2.color = myColor;
+        }
+else if (buttonname == "RedButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#CD0D0D", out myColor);
+            Band2.color = myColor;
+        }
+
+    }
+
+public void w3colourselect()
+    {
+stringbuttonname = EventSystem.current.currentSelectedGameObject.name;
+if (buttonname == "BlackButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#000000", out myColor);
+            Band3.color = myColor;
+        }
+else if (buttonname == "WhiteButton")
+        {
+ColormyColor = new Color();
+ColorUtility.TryParseHtmlString("#CCCCCC", out myColor);
+            Band3.color = myColor;
+        }
+
+    }
+}
